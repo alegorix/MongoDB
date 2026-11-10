@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "64f1a2b3c4d5e6f7a8b9c001",
+    "customer": {
+      "name": "Alice Martin",
+      "email": "alice.martin@example.com"
+    },
+    "status": "DELIVERED",
+    "totalAmount": 129.50,
+    "items": [
+      { "productId": "PROD-101", "quantity": 2, "unitPrice": 49.75 },
+      { "productId": "PROD-102", "quantity": 1, "unitPrice": 30.00 }
+    ],
+    "orderDate": "2024-03-01T10:15:00Z"
+  },
+  {
+    "_id": "64f1a2b3c4d5e6f7a8b9c002",
+    "customer": {
+      "name": "Bob Durant",
+      "email": "bob.durant@invalid-domain"
+    },
+    "status": "PROCESSING",
+    "totalAmount": "85.00",
+    "items": [
+      { "productId": "PROD-103", "quantity": 1, "unitPrice": 85.00 }
+    ],
+    "orderDate": "2024-03-02T14:30:00Z"
+  },
+  {
+    "_id": "64f1a2b3c4d5e6f7a8b9c003",
+    "customer": {
+      "name": "Charlie Chaplin"
+    },
+    "status": "CANCELLED",
+    "totalAmount": 0,
+    "items": [],
+    "orderDate": "2024-03-03T09:00:00Z"
+  },
+  {
+    "_id": "64f1a2b3c4d5e6f7a8b9c004",
+    "customer": {
+      "name": "Diana Prince",
+      "email": "diana@amazon.net"
+    },
+    "status": "EN_COURS",
+    "totalAmount": 240.00,
+    "items": [
+      { "productId": "PROD-104", "quantity": -3, "unitPrice": 80.00 }
+    ],
+    "orderDate": "2024-03-03T11:20:00Z"
+  },
+  {
+    "_id": "64f1a2b3c4d5e6f7a8b9c005",
+    "customer": "Éric Leroy",
+    "status": "DELIVERED",
+    "totalAmount": 55.00,
+    "items": [
+      { "productId": "PROD-105", "quantity": 1, "unitPrice": 55.00 }
+    ],
+    "orderDate": "2024-03-04T16:45:00Z"
+  }
+]
