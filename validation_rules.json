@@ -1,0 +1,67 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["customer", "status", "totalAmount", "items", "orderDate"],
+    "additionalProperties": true,
+    "properties": {
+      "customer": {
+        "bsonType": "object",
+        "required": ["name", "email"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "bsonType": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "Le nom du client doit être une chaîne non vide (2 à 100 caractères)"
+          },
+          "email": {
+            "bsonType": "string",
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+            "description": "Adresse e-mail invalide"
+          }
+        }
+      },
+      "status": {
+        "enum": ["PENDING", "PROCESSING", "DELIVERED", "CANCELLED"],
+        "description": "Le statut doit être obligatoirement : PENDING, PROCESSING, DELIVERED ou CANCELLED"
+      },
+      "totalAmount": {
+        "bsonType": ["double", "int", "long", "decimal"],
+        "minimum": 0,
+        "description": "Le montant total doit être un nombre positif ou nul (pas de chaîne de caractères)"
+      },
+      "items": {
+        "bsonType": "array",
+        "minItems": 1,
+        "description": "Une commande doit comporter au minimum 1 article",
+        "items": {
+          "bsonType": "object",
+          "required": ["productId", "quantity", "unitPrice"],
+          "additionalProperties": false,
+          "properties": {
+            "productId": {
+              "bsonType": "string",
+              "pattern": "^PROD-[0-9]{3,}$",
+              "description": "L'identifiant produit doit respecter le format PROD-XXX"
+            },
+            "quantity": {
+              "bsonType": ["int", "long"],
+              "minimum": 1,
+              "description": "La quantité doit être un entier strictement supérieur à 0"
+            },
+            "unitPrice": {
+              "bsonType": ["double", "int", "decimal"],
+              "minimum": 0,
+              "description": "Le prix unitaire doit être un nombre positif"
+            }
+          }
+        }
+      },
+      "orderDate": {
+        "bsonType": ["date", "string"],
+        "description": "Date de la commande (format BSON Date ou ISO 8601 string)"
+      }
+    }
+  }
+}
